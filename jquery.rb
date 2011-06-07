@@ -11,11 +11,14 @@ inside('public/javascripts') do
 	FileUtils.rm_rf %w(controls.js dragdrop.js effects.js prototype.js rails.js)
 end
 
+#disable ssl verification since it fails miserably on windows
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 # Downloading latest jQuery.min
 get "http://code.jquery.com/jquery-latest.min.js", "public/javascripts/jquery.js"
 
 # Downloading latest jQuery drivers
-get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
+get "https://raw.github.com/rails/jquery-ujs/master/src/rails.js", "public/javascripts/rails.js"
 
 # Overriding default expansion
 if yes?("Override :defaults and setup :jquery expansion?")
