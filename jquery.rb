@@ -1,3 +1,5 @@
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 # This template installs the new jQuery drivers, removes
 # the old prototype drivers, and installs an initializer
 # which provides a jquery javscript expansion
@@ -12,7 +14,7 @@ inside('public/javascripts') do
 end
 
 #disable ssl verification since it fails miserably on windows
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+#OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 # Downloading latest jQuery.min
 get "http://code.jquery.com/jquery-latest.min.js", "public/javascripts/jquery.js"
